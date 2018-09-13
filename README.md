@@ -6,4 +6,4 @@
 
 
 ## Prototipo de tela
-![img](https://github.com/ChristianoPiccinin/todo-list-day/blob/master/img/prototipo-tela.png)
+![img](https://github.com/ChristianoPiccinin/todo-list-day/blob/master/img/prototipo_tela.png)

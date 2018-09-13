@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.gluonhq.charm.glisten.control.Avatar?>
+<?import com.gluonhq.charm.glisten.control.CardPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox prefHeight="600.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <SplitPane dividerPositions="0.2505567928730512" focusTraversable="true" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <items>
+        <AnchorPane>
+               <children>
+                  <CardPane layoutY="176.0">
+                      <Label style="-fx-padding:10;" text="Atividades Pendentes" />
+                      <Label style="-fx-padding:10;" text="Atividades Concluidas" />
+                      <Label style="-fx-padding:10;" text="Adicionar Atividade" />
+                  </CardPane>
+                  <Avatar layoutX="88.0" layoutY="72.0">
+                     <image>
+                        <Image url="@../../Downloads/Avatar_Dog-512.png" />
+                     </image>
+                  </Avatar>
+               </children>
+        </AnchorPane>
+        <ScrollPane prefHeight="-1.0" prefWidth="-1.0">
+          <content>
+            <AnchorPane id="Content" minHeight="-1.0" minWidth="-1.0" prefHeight="545.0" prefWidth="543.0">
+                     <children>
+                        <Label layoutX="212.0" layoutY="31.0" text="Atividades Pendentes" textAlignment="CENTER" />
+                        <CheckBox layoutX="100.0" layoutY="103.0" mnemonicParsing="false" text="Estudar para prova de Java">
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox layoutX="100.0" layoutY="131.0" mnemonicParsing="false" text="Estudar para a prova de SQL">
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox layoutX="100.0" layoutY="159.0" mnemonicParsing="false" text="Finalizar projeto integrador">
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox layoutX="100.0" layoutY="186.0" mnemonicParsing="false" text="Levar o cachorro para passear">
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox layoutX="100.0" layoutY="216.0" mnemonicParsing="false" text="Ir para academia">
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox layoutX="100.0" layoutY="247.0" mnemonicParsing="false" text="Fazer ritual de invocação">
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                        <CheckBox layoutX="100.0" layoutY="277.0" mnemonicParsing="false" text="Estudar C#">
+                           <padding>
+                              <Insets bottom="10.0" top="10.0" />
+                           </padding>
+                        </CheckBox>
+                     </children>
+            </AnchorPane>
+          </content>
+        </ScrollPane>
+      </items>
+    </SplitPane>
+    <HBox id="HBox" alignment="CENTER_LEFT" spacing="5.0" VBox.vgrow="NEVER">
+      <children>
+        <Label maxHeight="1.7976931348623157E308" maxWidth="-1.0" HBox.hgrow="ALWAYS">
+          <font>
+            <Font size="11.0" fx:id="x3" />
+          </font>
+          <textFill>
+            <Color blue="0.625" green="0.625" red="0.625" fx:id="x4" />
+          </textFill>
+        </Label>
+        <Label font="$x3" maxWidth="-1.0" textFill="$x4" HBox.hgrow="NEVER" />
+      </children>
+      <padding>
+        <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
+      </padding>
+    </HBox>
+  </children>
+</VBox>

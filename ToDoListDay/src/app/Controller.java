@@ -14,35 +14,48 @@ import java.util.ResourceBundle;
 
 public class Controller implements Initializable {
 
+
     @FXML
     private Button BtAdd;
+
+    @FXML
+    private Button BtRemove;
 
     @FXML
     private TextField txtAdd;
 
     @FXML
-    private ListView<String> listBoxMain;
+    private ListView<String> listaDeAtividades;
 
 
-    final ObservableList<String> listItems = FXCollections.observableArrayList();
+    final ObservableList<String> atividadesDaLista = FXCollections.observableArrayList();
+
 
     @FXML
-    private void addAction(ActionEvent action) {
+    private void adicionaItem(ActionEvent action) {
+        /*Adicionar itens na lista*/
 
-        // se o campo for preenchido
+        /*só deixa inserir na lista, se o campo for diferente de branco*/
         if (!txtAdd.getText().equals("")){
-            listItems.add(txtAdd.getText());
-            System.out.println(listItems);
+            atividadesDaLista.add(txtAdd.getText());
+            System.out.println(atividadesDaLista);
 
             txtAdd.setText("");
         }
+    }
 
-
+    @FXML
+    private void removeItem(ActionEvent action) {
+        /*remover itens da lista*/
+        int itemRemover = listaDeAtividades.getSelectionModel().getSelectedIndex();
+        if (itemRemover >= 0) {
+            atividadesDaLista.remove(listaDeAtividades.getSelectionModel().getSelectedIndex());
+        }
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        //listBoxMain.setItems(listItems);
+        listaDeAtividades.setItems(atividadesDaLista);
 
     }
 }

@@ -8,7 +8,7 @@ class ConnectionFactory {
 
     private final static String dataBaseName = "todolistday";
     private final static String dataBaseUser = "root";
-    private final static String dataBasePassword = "univille";
+    private final static String dataBasePassword = "";
 
     static Connection getConnection(){
         try {

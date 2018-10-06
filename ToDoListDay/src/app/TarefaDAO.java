@@ -23,13 +23,13 @@ public class TarefaDAO extends ConnectionFactory{
     }
 
 
-    public void deletarTarefa(Tarefa tarefa){
+    public void deletarTarefa(int tarefa){
         try{
 
             Connection connection = ConnectionFactory.getConnection();
 
-            PreparedStatement stmt = connection.prepareStatement("delete from lista_tarefas where idTarefa = ?");
-            stmt.setInt(1, tarefa.getIdTarefa());
+            PreparedStatement stmt = connection.prepareStatement("delete from lista_tarefas where id = ?");
+            stmt.setInt(1, tarefa);
             stmt.execute();
             stmt.close();
         }catch (Exception e) {
@@ -37,6 +37,41 @@ public class TarefaDAO extends ConnectionFactory{
             throw new RuntimeException();
         }
     }
+
+
+    public ArrayList<Tarefa> getTarefa(){
+        ArrayList<Tarefa> tarefas = new ArrayList<Tarefa>();
+
+        try{
+
+            Connection connection = ConnectionFactory.getConnection();
+
+            PreparedStatement stmt = connection.prepareStatement("select id, descricao from lista_tarefas");
+
+            ResultSet resultSet = stmt.executeQuery();
+
+
+            while(resultSet.next()){
+                Tarefa tarefa = new Tarefa();
+                tarefa.setIdTarefa(resultSet.getInt(1));
+                tarefa.setTarefa(resultSet.getString(2));
+
+                tarefas.add(tarefa);
+
+            }
+
+
+        }catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException();
+        }
+
+        return tarefas;
+    }
+
+
+
+
 }
 
 

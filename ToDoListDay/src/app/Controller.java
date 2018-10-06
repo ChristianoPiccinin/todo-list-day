@@ -26,12 +26,9 @@ public class Controller implements Initializable {
     private TextField txtAdd;
 
     @FXML
-    private ListView<String> listaDeAtividades;
+    private ListView<Tarefa> listaDeAtividades;
 
-
-    final ObservableList<String> atividadesDaLista = FXCollections.observableArrayList();
-
-
+    final ObservableList<Tarefa> atividadesDaLista =  FXCollections.observableArrayList();
 
     @FXML
     private void adicionaItem(ActionEvent action) {
@@ -40,38 +37,43 @@ public class Controller implements Initializable {
         /*Adicionar itens na lista*/
         /*só deixa inserir na lista, se o campo for diferente de branco*/
         if (!txtAdd.getText().equals("")){
-            tarefa.setTarefa(txtAdd.getText());
+            //tarefa.setTarefa(txtAdd.getText());
             tarefaDAO.novaTarefa(tarefa);
-
-            atividadesDaLista.add(txtAdd.getText());
-
-
             txtAdd.setText("");
+            populaLista();
         }
     }
-
 
     @FXML
-    private void removeItem(ActionEvent action)
-        /*
-        int itemRemover = listaDeAtividades.getSelectionModel().getSelectedIndex();
-        if (itemRemover >= 0) {
-            atividadesDaLista.remove(listaDeAtividades.getSelectionModel().getSelectedIndex());
-        }
-        */
+    private void removeItem(ActionEvent action){
+        TarefaDAO tarefasDAO = new TarefaDAO();
+
+        ArrayList<Tarefa> tarefas ;
+        tarefas = retornaTarefas();
+        tarefasDAO.deletarTarefa(tarefas.get(listaDeAtividades.getSelectionModel().getSelectedIndex()).getIdTarefa());
+        populaLista();
     }
 
+    public void populaLista(){
+        atividadesDaLista.clear();
+        atividadesDaLista.addAll(retornaTarefas());
+        listaDeAtividades.setItems(atividadesDaLista);
+    }
+
+
+    public ArrayList<Tarefa> retornaTarefas(){
+        TarefaDAO tarefasDAO = new TarefaDAO();
+
+        ArrayList<Tarefa> tarefas = new ArrayList<Tarefa>();
+        tarefas = tarefasDAO.getTarefa();
+       return tarefas;
+    }
 
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        TarefaDAO tarefaDAO = new TarefaDAO();
-        listaDeAtividades.setItems(atividadesDaLista);
-
-
-
-
-
-
+       populaLista();
     }
+
+
 }

@@ -13,8 +13,7 @@ public class TarefaDAO extends ConnectionFactory{
             Connection connection = ConnectionFactory.getConnection();
             PreparedStatement stmt = connection.prepareStatement("insert lista_tarefas(descricao) values(?)");
             stmt.setString(1, tarefa.getTarefa());
-            System.out.println("----");
-            System.out.println(tarefa.getTarefa());
+
             stmt.execute();
             stmt.close();
         }catch (Exception e) {
@@ -55,7 +54,7 @@ public class TarefaDAO extends ConnectionFactory{
             while(resultSet.next()){
                 Tarefa tarefa = new Tarefa();
                 tarefa.setIdTarefa(resultSet.getInt(1));
-                tarefa.setTarefa(resultSet.getString(1));
+                tarefa.setTarefa(resultSet.getString(2));
 
                 tarefas.add(tarefa);
 

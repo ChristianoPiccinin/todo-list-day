@@ -69,7 +69,7 @@ public class Controller implements Initializable {
 
         ArrayList<Tarefa> tarefas = new ArrayList<Tarefa>();
         tarefas = tarefasDAO.getTarefa();
-       return tarefas;
+        return tarefas;
     }
 
 

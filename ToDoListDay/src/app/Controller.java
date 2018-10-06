@@ -32,16 +32,16 @@ public class Controller implements Initializable {
 
     @FXML
     private void adicionaItem(ActionEvent action) {
-        Tarefa tarefa = new Tarefa();
         TarefaDAO tarefaDAO = new TarefaDAO();
-        /*Adicionar itens na lista*/
-        /*só deixa inserir na lista, se o campo for diferente de branco*/
+        Tarefa tarefa = new Tarefa();
         if (!txtAdd.getText().equals("")){
-            //tarefa.setTarefa(txtAdd.getText());
+
+            tarefa.setTarefa(txtAdd.getText());
             tarefaDAO.novaTarefa(tarefa);
-            txtAdd.setText("");
-            populaLista();
+
         }
+        txtAdd.setText("");
+        populaLista();
     }
 
     @FXML
@@ -50,7 +50,10 @@ public class Controller implements Initializable {
 
         ArrayList<Tarefa> tarefas ;
         tarefas = retornaTarefas();
-        tarefasDAO.deletarTarefa(tarefas.get(listaDeAtividades.getSelectionModel().getSelectedIndex()).getIdTarefa());
+
+        if(listaDeAtividades.getSelectionModel().getSelectedIndex()   > -1 )  {
+            tarefasDAO.deletarTarefa(tarefas.get(listaDeAtividades.getSelectionModel().getSelectedIndex()).getIdTarefa());
+        }
         populaLista();
     }
 

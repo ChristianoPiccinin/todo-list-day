@@ -21,4 +21,11 @@ public class Tarefa {
     public void setTarefa(String tarefa) {
         this.tarefa = tarefa;
     }
+
+    @Override
+    public String toString(){
+        return tarefa;
+    }
+
+
 }
